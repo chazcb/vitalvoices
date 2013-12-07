@@ -37,6 +37,8 @@
     <div class="inspire">
       <h2>{{title_quote}}</h2>
       <button type="button" class="btn btn-default btn-lg btn-like">
+         <span class="glyphicon glyphicon-eye-open"></span>
+      </button>
     </div>
 
     <div class="tags">
@@ -49,7 +51,9 @@
     <div class="inspirations">
       {{#each thumbnail}}
          {{.}}
-	 <span class="glyphicon glyphicon-facetime-video"></span>
+	 <button type="button" class="btn btn-default btn-lg btn-inspiration">
+            <span class="glyphicon glyphicon-facetime-video"></span>
+         </button>
       {{/each}}
     </div>
 
@@ -60,6 +64,9 @@
     <div class="comments">
       <h2>Comments</h2>
       <img src="{{stander}}" /><p>{{stander.comment}}</p>
+      <button type="button" class="btn btn-default btn-lg btn-comment">
+         <span class="glyphicon glyphicon-comment"></span>
+      </button>
     </div>
 
     <div class="related">
