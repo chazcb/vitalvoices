@@ -9,69 +9,61 @@
   </div>
 </template>
 
-<!--<template name="home">
-  <h1>Home template</h1>
-  {{greeting}}
 
-    {{#each activity}}
-        {{.}}
-    {{/each}}
-  <input type="button" value="Click" />
-</template>
--->
 <template name="home">
-  <h1>Vital Women</h1>
-
-<div class="header">
-  <img src="https://dchtm6r471mui.cloudfront.net/hackpad.com_BayZzuNR53V_p.97469_1386447238555_VV_LOGO_final.svg"></img>
-  <div class="author">
-     <img src="#" /><h1>{{name}}</h1>
-  </div>
-  <div class="subtitle">
-     {{category}}
-     {{region}}
-  </div>
-  <div class="standers">
-     {{#each stander}}
-         {{.}}
-     {{/each}}
-  </div>
-</div>
-
-<div class="inspire">
-  <h2>{{title_quote}}</h2>
-  <button type="button" class="btn btn-default btn-lg btn-like">
-</div>
-
-<div class="tags">
-  <p>Readers felt this was:</p>
-  {{#each tag}}
-     {{.}}
-  {{/each}}
-</div>
-
-<div class="inspirations">
-  {{#each thumbnail}}
-     {{.}}
-  {{/each}}
-</div>
-
-<div class="main-content">
-  {{main_content}}
-</div>
-
-<div class="comments">
-  {{stander}}: {{stander.comment}}
-</div>
-
-<div class="related">
-  {{#each related}}
-    {{.}}
-  {{/each}}
-</div>
+    {{#each seeds}}
+    <a href="{{pathFor 'seed'}}">{{name}}</a>
+    {{/each}}
 </template>
+<template name="seed">
+    <a href="{{pathFor 'home'}}">Home</a>
+    <h1>Main Template</h1>
+    <div class="header">
+      <div class="logo"></div>
+      <div class="author">
+         <img src="https://dchtm6r471mui.cloudfront.net/hackpad.com_BayZzuNR53V_p.97469_1386447238555_VV_LOGO_final.svg" /><h1>{{name}}</h1>
+      </div>
+      <div class="subtitle">
+         {{category}}
+         {{region}}
+      </div>
+      <div class="standers">
+         {{#each stander}}
+             {{.}}
+         {{/each}}
+      </div>
+    </div>
+    <div class="inspire">
+      <h2>{{title_quote}}</h2>
+      <button type="button" class="btn btn-default btn-lg btn-like">
+    </div>
 
-<template name="seeds">
-  <a href="{{pathFor 'seeds'}}">Show seed</a>
-  <h1>Seed ID = {{_id}}</h1>
+    <div class="tags">
+      <p>Readers felt this was:</p>
+      {{#each tag}}
+         {{.}}
+      {{/each}}
+    </div>
+
+    <div class="inspirations">
+      {{#each thumbnail}}
+         {{.}}
+      {{/each}}
+    </div>
+
+    <div class="main-content">
+      {{main_content}}
+    </div>
+
+    <div class="comments">
+      {{stander}}: {{stander.comment}}
+    </div>
+
+    <div class="related">
+      {{#each related}}
+        {{.}}
+      {{/each}}
+    </div>
+    <a href="{{pathFor 'seed'}}">Show seed</a>
+    <h1>Seed ID = {{_id}}</h1>
 </template>
