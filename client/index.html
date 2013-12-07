@@ -86,13 +86,22 @@
 
     <div class="comments">
       <h2>Comments</h2>
-      <img src="{{stander}}" /><p>{{stander.comment}}</p>
-      <button type="button" class="btn btn-default btn-lg btn-comment">
-         <span class="glyphicon glyphicon-comment"></span>
-      </button>
       {{#each comments}}
             {{author_id}}{{type}}
       {{/each}}
+    </div>
+    <div class="row">
+      <form class="form-inline" role="form">
+        <div class="col-sm-8">
+         <!--  <img src="{{stander}}" /><p>{{stander.comment}}</p> -->
+          <textarea class="form-control" rows="3"></textarea>
+        </div>
+        <div class="col-sm-4">
+          <button type="button" class="btn btn-default btn-lg btn-comment">
+             <span class="glyphicon glyphicon-comment"></span>
+          </button>
+        </div>
+      </form>
     </div>
 
     <div class="related">
