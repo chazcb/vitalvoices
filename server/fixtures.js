@@ -47,12 +47,16 @@ var posts = [{
 
 if (Meteor.isServer) {
     Meteor.startup(function () {
-        // Remove all the Seeds and start over
+        // Add all seeds
         this.Seeds.remove({});
-
-        // Add all data from the fixtures file
         posts.forEach(function (fixture) {
             this.Seeds.insert(fixture);
+        });
+
+        // Add all users
+        this.Users.remove({});
+        users.forEach(function (fixture) {
+            this.Users.insert(fixture);
         });
 
     });

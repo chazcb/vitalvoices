@@ -1,4 +1,5 @@
 var Seeds = this.Seeds = new Meteor.Collection("seeds");
+var Users = this.Users = new Meteor.Collection("users");
 
 Seeds.insert({
     name: 'name',
