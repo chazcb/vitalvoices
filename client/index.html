@@ -12,30 +12,45 @@
 
 <template name="home">
     {{#each seeds}}
-    <a href="{{pathFor 'seed'}}">{{name}}</a>
+    <a href="/seed/{{sys_id}}">{{title_quote}}</a>
     {{/each}}
 </template>
+
 <template name="seed">
+    <img src="{{author.headshot}}" /><h4>{{author.name}}</h4>
+
     <a href="{{pathFor 'home'}}">Home</a>
-    <h1>Main Template</h1>
+
     <div class="header">
-      <div class="logo"></div>
-      <div class="author">
-         <img src="https://dchtm6r471mui.cloudfront.net/hackpad.com_BayZzuNR53V_p.97469_1386447238555_VV_LOGO_final.svg" /><h1>{{name}}</h1>
+
+      <div class="logo">
+	<img id="vvlogo" src="https://dchtm6r471mui.cloudfront.net/hackpad.com_BayZzuNR53V_p.97469_1386454338266_VW_LOGO_FINAL_TRANS.png" alt="VV Women Logo" alt="VV Women Logo"/>
+	Vital Voices Women
       </div>
+
+      <div class="author">
+	<img id="authorimg" src="https://dchtm6r471mui.cloudfront.net/hackpad.com_BayZzuNR53V_p.97471_1386454089755_rebecca.jpg" alt="Rebecca image" />
+	Rebecca Lolosoli
+      </div>
+
       <div class="subtitle">
          {{category}}
          {{region}}
       </div>
+
       <div class="standers">
          {{#each stander}}
              {{.}}
          {{/each}}
       </div>
+
     </div>
+
     <div class="inspire">
       <h2>{{title_quote}}</h2>
       <button type="button" class="btn btn-default btn-lg btn-like">
+         <span class="glyphicon glyphicon-eye-open"></span>
+      </button>
     </div>
 
     <div class="tags">
@@ -48,6 +63,9 @@
     <div class="inspirations">
       {{#each thumbnail}}
          {{.}}
+	 <button type="button" class="btn btn-default btn-lg btn-inspiration">
+            <span class="glyphicon glyphicon-facetime-video"></span>
+         </button>
       {{/each}}
     </div>
 
@@ -56,14 +74,19 @@
     </div>
 
     <div class="comments">
-      {{stander}}: {{stander.comment}}
+      <h2>Comments</h2>
+      <img src="{{stander}}" /><p>{{stander.comment}}</p>
+      <button type="button" class="btn btn-default btn-lg btn-comment">
+         <span class="glyphicon glyphicon-comment"></span>
+      </button>
     </div>
 
     <div class="related">
+      <h2>Related Seeds</h2>
       {{#each related}}
         {{.}}
+        <img src="{{author.headshot}}" /><h4>{{author.name}}</h4>
       {{/each}}
     </div>
-    <a href="{{pathFor 'seed'}}">Show seed</a>
-    <h1>Seed ID = {{_id}}</h1>
+
 </template>

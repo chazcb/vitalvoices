@@ -1,15 +1,6 @@
 var Seeds = this.Seeds = new Meteor.Collection("seeds");
 var Users = this.Users = new Meteor.Collection("users");
 
-Seeds.insert({
-    name: 'name',
-    category: 'category',
-    region: 'region',
-    title_quote: 'title_quote',
-    main_content: 'main_content',
-    related: 'related'
-});
-
 if (Meteor.isClient) {
   Template.home.greeting = function () {
     return "Here is some home.";
@@ -18,6 +9,15 @@ if (Meteor.isClient) {
   Template.home.activity = [1, 2, 3, 4, 8, 5];
 
   Template.home.events({
+    'click .btn-like' : function (e,tmpl){
+       Engagement.update(Session.get("engagementCount"), {$inc: {count:1}});
+    },
+    'click .btn-comment': function (e,tmpl){
+
+    },
+    'click .btn-inspiration': function (e,tmpl){
+
+    },
     'click input' : function () {
       // template data, if any, is available in 'this'
       if (typeof console !== 'undefined')
@@ -149,13 +149,19 @@ Router.map(function () {
    * The route's template is inferred to be "posts"
    */
   this.route('seed', {
-    path: '/seed/:_id',
+    path: '/seed/:sys_id',
 
     // Data is information that gets sent to the template. It's the `context`
     data: function () {
-        return {
-            _id: this.params._id
-        };
+        var seed = Seeds.findOne({sys_id: this.params.sys_id});
+
+        if(!seed) // seed needs to load async
+            return;
+
+        // console.log(seed);
+        seed.author = Users.findOne({sys_id: seed.author_id});
+
+        return seed;
     }
   });
 
