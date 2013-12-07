@@ -47,31 +47,34 @@ if (Meteor.isClient) {
         L.Icon.Default.imagePath = 'packages/leaflet/images';
 
         var markerMendez = L.marker([-16.7120, -64.6660]).addTo(map);
-        markerMendez.bindPopup("<b>Hello world!</b><br>Bolivia");
+        markerMendez.bindPopup("<a href='/user/1'><b>Maria Claudia Mendez</b></a><br>Bolivia");
 
         var markerDell = L.marker([-14.0000, -172.0000]).addTo(map);
-        markerDell.bindPopup("<b>Hello world!</b><br>Samoa");
+        markerDell.bindPopup("<a href='/user/2'><b>Phelicia Dell</b></a><br>Samoa");
 
         var markerAlHarazi = L.marker([15.0000, 48.0000]).addTo(map);
-        markerAlHarazi.bindPopup("<b>Hello world!</b><br>Yemen");
+        markerAlHarazi.bindPopup("<a href='/user/3'><b>Shatha Al-Harazi</b></a><br>Yemen");
 
         var markerAdi = L.marker([-13.8333, -171.7500]).addTo(map);
-        markerAdi.bindPopup("<b>Hello world!</b><br>Samoa");
+        markerAdi.bindPopup("<a href='/user/4'><b>Adimaimalaga Tafuna'i</b></a><br>Samoa");
 
         var markerChakraborty = L.marker([21.0000, 78.0000]).addTo(map);
-        markerChakraborty.bindPopup("<b>Hello world!</b><br>India");
+        markerChakraborty.bindPopup("<a href='/user/5'><b>Sohini Chakraborty</b></a><br>India");
 
         var markerXingjuan = L.marker([39.9139, 116.3917]).addTo(map);
-        markerXingjuan.bindPopup("<b>Hello world!</b><br>China");
+        markerXingjuan.bindPopup("<a href='/user/6'><b>Wang Xingjuan</b></a><br>China");
 
         var markerZafar = L.marker([29.4000, 69.1833]).addTo(map);
-        markerZafar.bindPopup("<b>Hello world!</b><br>Pakistan");
+        markerZafar.bindPopup("<a href='/user/7'><b>Roshaneh Zafar</b></a><br>Pakistan");
 
         var markerDzogbenuku = L.marker([7.6833, -0.9833]).addTo(map);
-        markerDzogbenuku.bindPopup("<b>Hello world!</b><br>Ghana");
+        markerDzogbenuku.bindPopup("<a href='/user/8'><b>Brigitte Dzogbenuku</b></a><br>Ghana");
 
         var markerShaltiel = L.marker([7.1881, 21.0936]).addTo(map);
-        markerShaltiel.bindPopup("<b>Hello world!</b><br>Africa");
+        markerShaltiel.bindPopup("<a href='/user/9'><b>Doron Shaltiel</b></a><br>Africa");
+
+        var markerLolosoli = L.marker([-1.2667, 36.8000]).addTo(map);
+        markerLolosoli.bindPopup("<a href='/user/9'><b>Rebecca Lolosoli</b></a><br>Africa");
 
         // Plot coordinates from locations table
         // var info = {{ master_json | safe }};
