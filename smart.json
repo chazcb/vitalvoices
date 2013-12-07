@@ -3,6 +3,7 @@
     "bootstrap-3": {},
     "jquery-ui": {},
     "router": {},
-    "iron-router": {}
+    "iron-router": {},
+    "leaflet": {}
   }
 }

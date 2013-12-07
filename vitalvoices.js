@@ -36,14 +36,42 @@ if (Meteor.isClient) {
 
         var map = new L.Map('map', {
             zoomControl: false,
-            center: new L.LatLng(37.75042,-122.489),
-            zoom: 12,
+            center: new L.LatLng(12.0000, 8.5167),
+            zoom: 2,
             layers: [baseLayer]
         });
         new L.Control.Zoom({
             position: 'topright'
         }).addTo(map);
 
+        L.Icon.Default.imagePath = 'packages/leaflet/images';
+
+        var markerMendez = L.marker([-16.7120, -64.6660]).addTo(map);
+        markerMendez.bindPopup("<b>Hello world!</b><br>Bolivia");
+
+        var markerDell = L.marker([-14.0000, -172.0000]).addTo(map);
+        markerDell.bindPopup("<b>Hello world!</b><br>Samoa");
+
+        var markerAlHarazi = L.marker([15.0000, 48.0000]).addTo(map);
+        markerAlHarazi.bindPopup("<b>Hello world!</b><br>Yemen");
+
+        var markerAdi = L.marker([-13.8333, -171.7500]).addTo(map);
+        markerAdi.bindPopup("<b>Hello world!</b><br>Samoa");
+
+        var markerChakraborty = L.marker([21.0000, 78.0000]).addTo(map);
+        markerChakraborty.bindPopup("<b>Hello world!</b><br>India");
+
+        var markerXingjuan = L.marker([39.9139, 116.3917]).addTo(map);
+        markerXingjuan.bindPopup("<b>Hello world!</b><br>China");
+
+        var markerZafar = L.marker([29.4000, 69.1833]).addTo(map);
+        markerZafar.bindPopup("<b>Hello world!</b><br>Pakistan");
+
+        var markerDzogbenuku = L.marker([7.6833, -0.9833]).addTo(map);
+        markerDzogbenuku.bindPopup("<b>Hello world!</b><br>Ghana");
+
+        var markerShaltiel = L.marker([7.1881, 21.0936]).addTo(map);
+        markerShaltiel.bindPopup("<b>Hello world!</b><br>Africa");
 
         // Plot coordinates from locations table
         // var info = {{ master_json | safe }};
