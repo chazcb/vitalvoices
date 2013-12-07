@@ -11,18 +11,31 @@ if (Meteor.isClient) {
 
   Template.seed.events({
     'click .btn-like' : function (e, tmpl){
-       Engagement.update(Session.get("engagementCount"), {$inc: {count:1}});
+        e.preventDefault();
+        e.stopPropagation();
+        var id = Engagements.insert({
+           type: 'like',
+           author_id: '2',
+           seed_id: tmpl.data.sys_id
+        });
     },
     'click .btn-comment': function (e, tmpl){
+        e.preventDefault();
+        e.stopPropagation();
         var id = Engagements.insert({
-            sys_id: '2',
-            type: 'like',
+            type: 'comment',
             author_id: '2',
-            seed_id: '1'
+            seed_id: tmpl.data.sys_id
         });
     },
     'click .btn-inspiration': function (e, tmpl){
-
+        e.preventDefault();
+        e.stopPropagation();
+        var id = Engagements.insert({
+           type: 'inspiration',
+           author_id: '2',
+           seed_id: tmpl.data.sys_id
+        });
     },
     'click input' : function () {
       // template data, if any, is available in 'this'
@@ -124,14 +137,14 @@ Router.map(function () {
     data: function () {
 
         var seed = Seeds.findOne({sys_id: this.params.sys_id});
-        console.log(this.params.sys_id, seed);
 
         if(!seed) // seed needs to load async
             return;
 
-        console.log(seed.sys_id);
-        seed.engagements = Engagements.find({seed_id: seed.sys_id}).fetch();
         seed.author = Users.findOne({sys_id: seed.author_id});
+
+        seed.likes = Engagements.find({seed_id: seed.sys_id, type: 'like'}).fetch();
+        seed.comments = Engagements.find({seed_id: seed.sys_id, type: 'comment'}).fetch();
 
         return seed;
     }
