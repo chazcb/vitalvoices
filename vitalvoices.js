@@ -22,9 +22,11 @@ if (Meteor.isClient) {
     'click .btn-comment': function (e, tmpl){
         e.preventDefault();
         e.stopPropagation();
+
         var id = Engagements.insert({
             type: 'comment',
             author_id: '2',
+            text: $(e.currentTarget).closest('form').find('[name=comment-text]').val(),
             seed_id: tmpl.data.sys_id
         });
     },
