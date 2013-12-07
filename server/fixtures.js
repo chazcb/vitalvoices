@@ -85,6 +85,20 @@ var posts = [{
     main_content: "Rebecca Lolosoli is the matriarch of Umoja Uaso Women’s Village, a safe haven for women and girls fleeing abuse, as well as a training center for those seeking to promote human rights and economic development.\nAs a child, Rebecca had witnessed occasional violence, and as a woman she came to see that some of the Samburu traditional practices were forcing women to endure abuse. She felt compelled to speak out on behalf of those who were marginalized and silenced — victims of rape, forced marriage, female genital cutting, as well as widows and orphans.\nWhen her advocacy was met with hostility and violence, Rebecca and 16 other survivors of violence came together for mutual protection, forging a new community on a patch of forgotten land. Umoja, which means ‘unity’, is now a thriving, self-sustained community.\nThe women of Umoja provide for their children and themselves through the sale of their beaded jewelry and crafts. Through a system of resource sharing, they have established a sickness and disability fund, a community center, and a school for their children and those in the surrounding area.\nDespite repeated threats and attacks, Rebecca continues to work for women’s rights. Her goal is to curb violence against women and the negative cultural practices that are harmful to women’s health, safety and well-being."
 }];
 
+var engagements = [{
+    type: 'like',
+    author_id: 1,
+    seed_id: 1
+}, {
+    type: 'like',
+    author_id: 2,
+    seed_id: 1
+}, {
+    type: 'like',
+    author_id: 7,
+    seed_id: 1
+}];
+
 
 if (Meteor.isServer) {
     Meteor.startup(function () {
@@ -92,6 +106,7 @@ if (Meteor.isServer) {
         // Drop all the things first
         this.Seeds.remove({});
         this.Users.remove({});
+        this.Engagements.remove({});
 
         // Add all seeds
         posts.forEach(function (fixture) {
@@ -105,5 +120,10 @@ if (Meteor.isServer) {
             this.Users.insert(fixture);
         });
 
+        // Add all engagements
+        engagements.forEach(function (fixture) {
+            console.log('Adding engagement ' + fixture.sys_id);
+            this.Engagements.insert(fixture);
+        });
     });
 }
