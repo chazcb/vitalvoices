@@ -9,14 +9,19 @@ if (Meteor.isClient) {
 
   Template.home.activity = [1, 2, 3, 4, 8, 5];
 
-  Template.home.events({
-    'click .btn-like' : function (e,tmpl){
+  Template.seed.events({
+    'click .btn-like' : function (e, tmpl){
        Engagement.update(Session.get("engagementCount"), {$inc: {count:1}});
     },
-    'click .btn-comment': function (e,tmpl){
-
+    'click .btn-comment': function (e, tmpl){
+        var id = Engagements.insert({
+            sys_id: '2',
+            type: 'like',
+            author_id: '2',
+            seed_id: '1'
+        });
     },
-    'click .btn-inspiration': function (e,tmpl){
+    'click .btn-inspiration': function (e, tmpl){
 
     },
     'click input' : function () {
@@ -25,6 +30,7 @@ if (Meteor.isClient) {
         console.log("You pressed the button");
     }
   });
+
   Template.map.rendered = function () {
         console.log("html has been rendered, starting on the map fn");
         var baseLayer = L.tileLayer(
