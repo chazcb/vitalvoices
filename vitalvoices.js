@@ -77,48 +77,7 @@ if (Meteor.isClient) {
         var markerLolosoli = L.marker([-1.2667, 36.8000]).addTo(map);
         markerLolosoli.bindPopup("<a href='/user/9'><b>Rebecca Lolosoli</b></a><br>Africa");
 
-        // Plot coordinates from locations table
-        // var info = {{ master_json | safe }};
-        // for (var i = 0; i < info.length; i++) {
-        //     var a = info[i];
-        //     var name = a[0];
-        //     var email = a[1];
-        //     if (email == null) {
-        //         email = "None - info via SMS";
-        //     }
-        //     var phone = a[2];
-        //     var address = a[3];
-        //     var supply = a[6];
-        //     var comment = a[7];
-        //     var marker = L.marker(new L.LatLng(a[4], a[5]), {
-        //         icon: blueIcon,
-        //         name: name,
-        //         email: email,
-        //         phone: phone,
-        //         address: address,
-        //         supply: supply,
-        //         comment: comment
-        //     });
-        //     marker.bindPopup(
-        //         "<b>Name:</b> " + name + "<br>" +
-        //         "<b>Email:</b> " + email + "<br>" +
-        //         "<b>Phone:</b> " + phone + "<br>" +
-        //         "<b>Address:</b> " + address + "<br>" +
-        //         "<b>Supply:</b> " + supply + "<br>" +
-        //         "<b>Comment: </b>" + comment
-        //     );
-        //     markers.addLayer(marker);
-        // };
-
-        // map.addLayer(markers);
-
-      // }
-    // data: function () {
-    //     return {
-    //         // seeds: Seeds.find().fetch()
-    //     };
-    // }
-      }
+      };
 }
 
 Router.configure({
