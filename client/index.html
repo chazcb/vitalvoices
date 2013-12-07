@@ -1,11 +1,16 @@
 <head>
   <title>Vital Voices</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 </head>
 
-
 <template name="layout">
-  <a href="{{pathFor 'home'}}"><h1>Vital Women</h1></a>
-  <div class="container">
+  <a href="{{pathFor 'home'}}"><h1>Vital Voices Women</h1></a>
+ 
+      <div class="logo">
+	<img id="vvlogo" src="https://dchtm6r471mui.cloudfront.net/hackpad.com_BayZzuNR53V_p.97469_1386454338266_VW_LOGO_FINAL_TRANS.png" alt="VV Women Logo" alt="VV Women Logo"/>
+      </div>
+
+ <div class="container">
     {{yield}}
   </div>
 </template>
@@ -28,20 +33,13 @@
 <!--    <a href="{{pathFor 'home'}}">Home</a>-->
 
     <div class="header">
-
-      <div class="logo">
-	<img id="vvlogo" src="https://dchtm6r471mui.cloudfront.net/hackpad.com_BayZzuNR53V_p.97469_1386454338266_VW_LOGO_FINAL_TRANS.png" alt="VV Women Logo" alt="VV Women Logo"/>
-	Vital Voices Women
-      </div>
-
       <div class="author">
 	<img id="authorimg" src="https://dchtm6r471mui.cloudfront.net/hackpad.com_BayZzuNR53V_p.97471_1386454089755_rebecca.jpg" alt="Rebecca image" />
-	Rebecca Lolosoli
       </div>
 
       <div class="subtitle">
-         <p>Economic Empowerment</p>
-         <p>Africa</p>
+         {{category}}
+         {{region}}
       </div>
 
       <div class="standers">
@@ -76,14 +74,7 @@
     </div>
 
     <div class="main-content">
-      <p> Rebecca Lolosoli is the matriarch of Umoja Uaso Women’s Village, a safe haven for women and girls fleeing abuse, as well as a training center for those seeking to promote human rights and economic development.</p>
-<p>As a child, Rebecca had witnessed occasional violence, and as a woman she came to see that some of the Samburu traditional practices were forcing women to endure abuse. She felt compelled to speak out on behalf of those who were marginalized and silenced — victims of rape, forced marriage, female genital cutting, as well as widows and orphans.</p>
-
-<p>When her advocacy was met with hostility and violence, Rebecca and 16 other survivors of violence came together for mutual protection, forging a new community on a patch of forgotten land. Umoja, which means ‘unity’, is now a thriving, self-sustained community.</p>
-
-<p>The women of Umoja provide for their children and themselves through the sale of their beaded jewelry and crafts. Through a system of resource sharing, they have established a sickness and disability fund, a community center, and a school for their children and those in the surrounding area.</p>
-
-<p>Despite repeated threats and attacks, Rebecca continues to work for women’s rights. Her goal is to curb violence against women and the negative cultural practices that are harmful to women’s health, safety and well-being.</p>
+      {{main_content}}
     </div>
 
     <div class="comments">
