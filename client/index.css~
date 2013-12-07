@@ -1,0 +1,41 @@
+.header {
+	.author {}
+	img {
+		width: .5;
+	}
+
+}
+
+.subtitle {
+
+}
+
+.standers {
+
+}
+
+.inspire {
+
+}
+
+.tags {
+
+}
+
+.inspirations {
+
+}
+
+.main-content {
+
+}
+
+.comments {
+
+}
+
+.related {
+
+}
+
+

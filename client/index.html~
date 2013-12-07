@@ -23,7 +23,7 @@
   <h1>Vital Women</h1>
 
 <div class="header">
-  <img src="https://dchtm6r471mui.cloudfront.net/hackpad.com_BayZzuNR53V_p.97469_1386447238555_VV_LOGO_final.svg"></img>
+  <img src="~/client/images/vvlogo.jpg"></img>
   <div class="author">
      <img src="#" /><h1>{{name}}</h1>
   </div>
