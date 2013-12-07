@@ -1,9 +1,13 @@
+// templates = ['news', 'main']
+
 if (Meteor.isClient) {
-  Template.hello.greeting = function () {
-    return "Welcome to vitalvoices.";
+  Template.news.greeting = function () {
+    return "Here is some news.";
   };
 
-  Template.hello.events({
+  Template.news.activity = [1, 2, 3, 4, 8, 5];
+
+  Template.news.events({
     'click input' : function () {
       // template data, if any, is available in 'this'
       if (typeof console !== 'undefined')
@@ -11,6 +15,14 @@ if (Meteor.isClient) {
     }
   });
 }
+
+Meteor.Router.add({
+  '/main': 'main', // renders template 'news'
+
+  // '/story/:id': 'story',
+
+  // '*': 'not_found'
+});
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
