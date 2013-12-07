@@ -48,6 +48,7 @@
     <div class="inspirations">
       {{#each thumbnail}}
          {{.}}
+	 <span class="glyphicon glyphicon-facetime-video"></span>
       {{/each}}
     </div>
 
@@ -56,12 +57,15 @@
     </div>
 
     <div class="comments">
-      {{stander}}: {{stander.comment}}
+      <h2>Comments</h2>
+      <img src="{{stander}}" /><p>{{stander.comment}}</p>
     </div>
 
     <div class="related">
+      <h2>Related Seeds</h2>
       {{#each related}}
         {{.}}
+        <img src="{{author.headshot}}" /><h4>{{author.name}}</h4>
       {{/each}}
     </div>
     <a href="{{pathFor 'seed'}}">Show seed</a>
