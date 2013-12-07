@@ -27,15 +27,16 @@
 }
 
 .main-content {
-
+	text-align: left;
+	padding: 15px 10px;
+	margin:0;
+	margin-bottom:5px;
 }
 
 .comments {
-
+	img {width:40px;}
 }
 
 .related {
-
+	img {width:40px;}
 }
-
-
