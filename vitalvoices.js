@@ -1,8 +1,4 @@
-// templates = ['home', 'seed']
-
-
-
-var Seeds = new Meteor.Collection("seeds");
+var Seeds = this.Seeds = new Meteor.Collection("seeds");
 
 Seeds.insert({
     name: 'name',
