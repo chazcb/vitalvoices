@@ -9,14 +9,19 @@ if (Meteor.isClient) {
 
   Template.home.activity = [1, 2, 3, 4, 8, 5];
 
-  Template.home.events({
-    'click .btn-like' : function (e,tmpl){
+  Template.seed.events({
+    'click .btn-like' : function (e, tmpl){
        Engagement.update(Session.get("engagementCount"), {$inc: {count:1}});
     },
-    'click .btn-comment': function (e,tmpl){
-
+    'click .btn-comment': function (e, tmpl){
+        var id = Engagements.insert({
+            sys_id: '2',
+            type: 'like',
+            author_id: '2',
+            seed_id: '1'
+        });
     },
-    'click .btn-inspiration': function (e,tmpl){
+    'click .btn-inspiration': function (e, tmpl){
 
     },
     'click input' : function () {
@@ -25,6 +30,7 @@ if (Meteor.isClient) {
         console.log("You pressed the button");
     }
   });
+
   Template.map.rendered = function () {
         console.log("html has been rendered, starting on the map fn");
         var baseLayer = L.tileLayer(
@@ -77,48 +83,7 @@ if (Meteor.isClient) {
         var markerLolosoli = L.marker([-1.2667, 36.8000]).addTo(map);
         markerLolosoli.bindPopup("<a href='/seed/1'><b>Rebecca Lolosoli</b></a><br>Africa");
 
-        // Plot coordinates from locations table
-        // var info = {{ master_json | safe }};
-        // for (var i = 0; i < info.length; i++) {
-        //     var a = info[i];
-        //     var name = a[0];
-        //     var email = a[1];
-        //     if (email == null) {
-        //         email = "None - info via SMS";
-        //     }
-        //     var phone = a[2];
-        //     var address = a[3];
-        //     var supply = a[6];
-        //     var comment = a[7];
-        //     var marker = L.marker(new L.LatLng(a[4], a[5]), {
-        //         icon: blueIcon,
-        //         name: name,
-        //         email: email,
-        //         phone: phone,
-        //         address: address,
-        //         supply: supply,
-        //         comment: comment
-        //     });
-        //     marker.bindPopup(
-        //         "<b>Name:</b> " + name + "<br>" +
-        //         "<b>Email:</b> " + email + "<br>" +
-        //         "<b>Phone:</b> " + phone + "<br>" +
-        //         "<b>Address:</b> " + address + "<br>" +
-        //         "<b>Supply:</b> " + supply + "<br>" +
-        //         "<b>Comment: </b>" + comment
-        //     );
-        //     markers.addLayer(marker);
-        // };
-
-        // map.addLayer(markers);
-
-      // }
-    // data: function () {
-    //     return {
-    //         // seeds: Seeds.find().fetch()
-    //     };
-    // }
-      }
+      };
 }
 
 Router.configure({
