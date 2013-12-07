@@ -21,8 +21,6 @@
 
 <template name="seed">
 
-    {{#each engagements}}<li>{{.}}</li>{{/each}}
-
     <img src="{{author.headshot}}" /><h4>{{author.name}}</h4>
 
 <!--    <a href="{{pathFor 'home'}}">Home</a>-->
@@ -92,6 +90,9 @@
       <button type="button" class="btn btn-default btn-lg btn-comment">
          <span class="glyphicon glyphicon-comment"></span>
       </button>
+      {{#each comments}}
+            {{author_id}}{{type}}
+      {{/each}}
     </div>
 
     <div class="related">
