@@ -75,7 +75,7 @@ if (Meteor.isClient) {
         markerShaltiel.bindPopup("<a href='/user/9'><b>Doron Shaltiel</b></a><br>Africa");
 
         var markerLolosoli = L.marker([-1.2667, 36.8000]).addTo(map);
-        markerLolosoli.bindPopup("<a href='/user/9'><b>Rebecca Lolosoli</b></a><br>Africa");
+        markerLolosoli.bindPopup("<a href='/seed/1'><b>Rebecca Lolosoli</b></a><br>Africa");
 
         // Plot coordinates from locations table
         // var info = {{ master_json | safe }};
