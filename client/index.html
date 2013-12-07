@@ -17,6 +17,9 @@
 </template>
 
 <template name="seed">
+
+    {{#each engagements}}<li>{{.}}</li>{{/each}}
+
     <img src="{{author.headshot}}" /><h4>{{author.name}}</h4>
 
     <a href="{{pathFor 'home'}}">Home</a>

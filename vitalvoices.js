@@ -1,5 +1,6 @@
 var Seeds = this.Seeds = new Meteor.Collection("seeds");
 var Users = this.Users = new Meteor.Collection("users");
+var Engagements = this.Engagements = new Meteor.Collection("engagements");
 
 if (Meteor.isClient) {
   Template.home.greeting = function () {
@@ -156,12 +157,15 @@ Router.map(function () {
 
     // Data is information that gets sent to the template. It's the `context`
     data: function () {
+
         var seed = Seeds.findOne({sys_id: this.params.sys_id});
+        console.log(this.params.sys_id, seed);
 
         if(!seed) // seed needs to load async
             return;
 
-        // console.log(seed);
+        console.log(seed.sys_id);
+        seed.engagements = Engagements.find({seed_id: seed.sys_id}).fetch();
         seed.author = Users.findOne({sys_id: seed.author_id});
 
         return seed;
