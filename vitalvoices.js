@@ -36,8 +36,8 @@ Router.map(function () {
    * The route's path is "/posts"
    * The route's template is inferred to be "posts"
    */
-  this.route('seeds', {
-    path: '/seeds/:_id',
+  this.route('seed', {
+    path: '/seed/:_id',
 
     // Data is information that gets sent to the template. It's the `context`
     data: function () {
