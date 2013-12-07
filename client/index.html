@@ -2,18 +2,20 @@
   <title>Vital Voices</title>
 </head>
 
-<body>
-  <h1>{{> news}}</h1>
-</body>
+<template name="layout">
+  <h1>Layout is here</h1>
+  <div class="container">
+    {{yield}}
+  </div>
+</template>
 
-<template name="news">
-  <h1>News Template in an H1</h1>
+<template name="home">
+  <h1>Home template</h1>
   {{greeting}}
 
     {{#each activity}}
         {{.}}
     {{/each}}
-
   <input type="button" value="Click" />
 </template>
 
@@ -68,4 +70,7 @@
   {{/each}}
 </div>
 
+=======
+<template name="seeds">
+  <h1>Seed template for some ID</h1>
 </template>
