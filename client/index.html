@@ -12,10 +12,11 @@
 
 <template name="home">
     {{#each seeds}}
-    <a href="{{pathFor 'seed'}}">{{name}}</a>
+    <a href="/seed/{{sys_id}}">{{title_quote}}</a>
     {{/each}}
 </template>
 <template name="seed">
+    <img src="{{author.headshot}}" /><h4>{{author.name}}</h4>
     <a href="{{pathFor 'home'}}">Home</a>
     <h1>Main Template</h1>
     <div class="header">
@@ -68,6 +69,5 @@
         <img src="{{author.headshot}}" /><h4>{{author.name}}</h4>
       {{/each}}
     </div>
-    <a href="{{pathFor 'seed'}}">Show seed</a>
-    <h1>Seed ID = {{_id}}</h1>
+
 </template>
