@@ -10,7 +10,9 @@
 </template>
 
 <template name="home">
-    Home template. Let's see a seed <a href="/seed/1">Here's a seed</a>
+    {{#each seeds}}
+    <a href="{{pathFor 'seed'}}">{{name}}</a>
+    {{/each}}
 </template>
 
 <template name="seed">
@@ -63,6 +65,6 @@
         {{.}}
       {{/each}}
     </div>
-    <a href="{{pathFor 'seeds'}}">Show seed</a>
+    <a href="{{pathFor 'seed'}}">Show seed</a>
     <h1>Seed ID = {{_id}}</h1>
 </template>

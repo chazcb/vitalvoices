@@ -1,4 +1,17 @@
-// templates = ['news', 'main']
+// templates = ['home', 'seed']
+
+
+
+var Seeds = new Meteor.Collection("seeds");
+
+Seeds.insert({
+    name: 'name',
+    category: 'category',
+    region: 'region',
+    title_quote: 'title_quote',
+    main_content: 'main_content',
+    related: 'related'
+});
 
 if (Meteor.isClient) {
   Template.home.greeting = function () {
@@ -20,6 +33,7 @@ Router.configure({
   layoutTemplate: 'layout'
 });
 
+
 Router.map(function () {
   /**
    * The route's name is "home"
@@ -28,7 +42,12 @@ Router.map(function () {
    */
   this.route('home', {
     path: '/',
-    template: 'home'
+    template: 'home',
+    data: function () {
+        return {
+            seeds: Seeds.find().fetch()
+        };
+    }
   });
 
   /**
