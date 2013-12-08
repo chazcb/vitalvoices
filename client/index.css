@@ -31,6 +31,10 @@ img {
 	width: 400px;
 	position: left;
 }
+.col-sm-3 {
+    width: 50%;
+    font-size: 25pt;
+}
 .col-sm-4 {
     width: 50%;
     height: 400px;
@@ -44,7 +48,12 @@ img {
 	font: bold;
 	
 }
-
+#category {
+	font-size: 35pt;
+}
+#region {
+	font-size: 30pt;
+}
 
 .subtitle {
 	font-size: 30pt;
