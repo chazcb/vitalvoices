@@ -5,7 +5,7 @@
 
 <template name="layout">
   <a href="{{pathFor 'home'}}"><h1>Vital Voices Women</h1></a>
- 
+
       <div class="logo">
 	<img id="vvlogo" src="https://dchtm6r471mui.cloudfront.net/hackpad.com_BayZzuNR53V_p.97469_1386454338266_VW_LOGO_FINAL_TRANS.png" alt="VV Women Logo" alt="VV Women Logo"/>
       </div>
@@ -52,11 +52,11 @@
          Inspiring!
         </button>
 	</div>
-	
+
       <div class="subtitle">
          "You do not have to be educated you do not have to be rich to be important in this world, to make a change in the world."
         </div>
-	
+
 
       <div class="standers">
          {{#each stander}}
@@ -68,16 +68,18 @@
 
     <div class="inspire">
       <h2>{{title_quote}}</h2>
-      <button type="button" class="btn btn-default btn-lg btn-like">
-         <span class="glyphicon glyphicon-eye-open"></span>
-      </button>
+    <div class="row">
+        <div class="">
+            <button type="button" class="btn btn-default btn-lg btn-like">
+                <span class="glyphicon glyphicon-eye-open"></span>
+            </button>
+        </div>
+        <div class="tags">
+          {{#each likes}}
+             <span class="glyphicon glyphicon-leaf"></span>
+          {{/each}}
+        </div>
     </div>
-
-    <div class="tags">
-      <p>Readers felt this was:</p>
-      {{#each likes}}
-         {{type}}
-      {{/each}}
     </div>
 
     <div class="inspirations">
