@@ -23,12 +23,17 @@ if (Meteor.isClient) {
         e.preventDefault();
         e.stopPropagation();
 
-        var id = Engagements.insert({
-            type: 'comment',
-            author_id: '2',
-            text: $(e.currentTarget).closest('form').find('[name=comment-text]').val(),
-            seed_id: tmpl.data.sys_id
-        });
+        var textarea = $(e.currentTarget).closest('form').find('[name=comment-text]');
+        var comment = textarea.val();
+        if (comment) {
+            var id = Engagements.insert({
+                type: 'comment',
+                author_id: '2',
+                text: textarea.val(),
+                seed_id: tmpl.data.sys_id
+            });
+        }
+        textarea.val('');
     },
     'click .btn-inspiration': function (e, tmpl){
         e.preventDefault();
