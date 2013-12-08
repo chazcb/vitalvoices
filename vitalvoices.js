@@ -9,15 +9,35 @@ if (Meteor.isClient) {
 
   Template.home.activity = [1, 2, 3, 4, 8, 5];
 
-  Template.home.events({
-    'click .btn-like' : function (e,tmpl){
-       Engagement.update(Session.get("engagementCount"), {$inc: {count:1}});
+  Template.seed.events({
+    'click .btn-like' : function (e, tmpl){
+        e.preventDefault();
+        e.stopPropagation();
+        var id = Engagements.insert({
+           type: 'like',
+           author_id: '2',
+           seed_id: tmpl.data.sys_id
+        });
     },
-    'click .btn-comment': function (e,tmpl){
+    'click .btn-comment': function (e, tmpl){
+        e.preventDefault();
+        e.stopPropagation();
 
+        var id = Engagements.insert({
+            type: 'comment',
+            author_id: '2',
+            text: $(e.currentTarget).closest('form').find('[name=comment-text]').val(),
+            seed_id: tmpl.data.sys_id
+        });
     },
-    'click .btn-inspiration': function (e,tmpl){
-
+    'click .btn-inspiration': function (e, tmpl){
+        e.preventDefault();
+        e.stopPropagation();
+        var id = Engagements.insert({
+           type: 'inspiration',
+           author_id: '2',
+           seed_id: tmpl.data.sys_id
+        });
     },
     'click input' : function () {
       // template data, if any, is available in 'this'
@@ -25,6 +45,7 @@ if (Meteor.isClient) {
         console.log("You pressed the button");
     }
   });
+
   Template.map.rendered = function () {
         console.log("html has been rendered, starting on the map fn");
         var baseLayer = L.tileLayer(
@@ -75,50 +96,9 @@ if (Meteor.isClient) {
         markerShaltiel.bindPopup("<a href='/user/9'><b>Doron Shaltiel</b></a><br>Africa");
 
         var markerLolosoli = L.marker([-1.2667, 36.8000]).addTo(map);
-        markerLolosoli.bindPopup("<a href='/user/9'><b>Rebecca Lolosoli</b></a><br>Africa");
+        markerLolosoli.bindPopup("<a href='/seed/1'><b>Rebecca Lolosoli</b></a><br>Africa");
 
-        // Plot coordinates from locations table
-        // var info = {{ master_json | safe }};
-        // for (var i = 0; i < info.length; i++) {
-        //     var a = info[i];
-        //     var name = a[0];
-        //     var email = a[1];
-        //     if (email == null) {
-        //         email = "None - info via SMS";
-        //     }
-        //     var phone = a[2];
-        //     var address = a[3];
-        //     var supply = a[6];
-        //     var comment = a[7];
-        //     var marker = L.marker(new L.LatLng(a[4], a[5]), {
-        //         icon: blueIcon,
-        //         name: name,
-        //         email: email,
-        //         phone: phone,
-        //         address: address,
-        //         supply: supply,
-        //         comment: comment
-        //     });
-        //     marker.bindPopup(
-        //         "<b>Name:</b> " + name + "<br>" +
-        //         "<b>Email:</b> " + email + "<br>" +
-        //         "<b>Phone:</b> " + phone + "<br>" +
-        //         "<b>Address:</b> " + address + "<br>" +
-        //         "<b>Supply:</b> " + supply + "<br>" +
-        //         "<b>Comment: </b>" + comment
-        //     );
-        //     markers.addLayer(marker);
-        // };
-
-        // map.addLayer(markers);
-
-      // }
-    // data: function () {
-    //     return {
-    //         // seeds: Seeds.find().fetch()
-    //     };
-    // }
-      }
+      };
 }
 
 Router.configure({
@@ -159,14 +139,14 @@ Router.map(function () {
     data: function () {
 
         var seed = Seeds.findOne({sys_id: this.params.sys_id});
-        console.log(this.params.sys_id, seed);
 
         if(!seed) // seed needs to load async
             return;
 
-        console.log(seed.sys_id);
-        seed.engagements = Engagements.find({seed_id: seed.sys_id}).fetch();
         seed.author = Users.findOne({sys_id: seed.author_id});
+
+        seed.likes = Engagements.find({seed_id: seed.sys_id, type: 'like'}).fetch();
+        seed.comments = Engagements.find({seed_id: seed.sys_id, type: 'comment'}).fetch();
 
         return seed;
     }
