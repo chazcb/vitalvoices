@@ -32,13 +32,35 @@
 
     <div class="header">
       <div class="author">
-	<img id="authorimg" src="https://dchtm6r471mui.cloudfront.net/hackpad.com_BayZzuNR53V_p.97471_1386454089755_rebecca.jpg" alt="Rebecca image" />
-      </div>
+	<div class="row">
+	<div class="col-sm-4">
+	 <img id="authorimg" src="https://dchtm6r471mui.cloudfront.net/hackpad.com_BayZzuNR53V_p.97471_1386459154388_rsz_3rebecca.jpg" alt="Rebecca image" class="img-circle" />
+	</div>
 
+	<div class="col-sm-8">
+	 <p>
+           Rebecca Lolosoli
+	 </p>
+	    <div class="category">
+		<p>Human Rights</p>
+	    </div>
+	    <p>Africa</p>
+	</div>
+
+        </div>
+	</div>
+
+      <div class="row">
+	<div class="pull-right">
+         <button type="button" class="btn btn-primary btn-lg btn-inspire" >
+         Inspiring!
+        </button>
+	</div>
+	
       <div class="subtitle">
-         {{category}}
-         {{region}}
-      </div>
+         "You do not have to be educated you do not have to be rich to be important in this world, to make a change in the world."
+        </div>
+	
 
       <div class="standers">
          {{#each stander}}
@@ -57,8 +79,8 @@
 
     <div class="tags">
       <p>Readers felt this was:</p>
-      {{#each tag}}
-         {{.}}
+      {{#each likes}}
+         {{type}}
       {{/each}}
     </div>
 
@@ -78,14 +100,14 @@
     <div class="comments">
       <h2>Comments</h2>
       {{#each comments}}
-            {{author_id}}{{type}}
+            {{author_id}}{{type}}{{text}}
       {{/each}}
     </div>
     <div class="row">
       <form class="form-inline" role="form">
         <div class="col-sm-8">
          <!--  <img src="{{stander}}" /><p>{{stander.comment}}</p> -->
-          <textarea class="form-control" rows="3"></textarea>
+          <textarea name="comment-text" class="form-control" rows="3"></textarea>
         </div>
         <div class="col-sm-4">
           <button type="button" class="btn btn-default btn-lg btn-comment">
