@@ -106,14 +106,14 @@
     <div class="comments">
       <h2>Comments</h2>
       {{#each comments}}
-            <stong>{{author_id}}:</stong> {{type}}{{text}}<hr/>
+            {{type}}{{text}}<hr/>
       {{/each}}
     </div>
     <div class="row">
       <form class="form-inline" role="form">
         <div class="col-xs-9">
          <!--  <img src="{{stander}}" /><p>{{stander.comment}}</p> -->
-          <textarea name="comment-text" class="form-control" rows="3"></textarea>
+          <textarea name="comment-text" class="form-control" rows="3" placeholder="Share your thoughts"></textarea>
         </div>
         <div class="col-xs-2">
           <button type="button" class="btn btn-default btn-lg btn-comment">
