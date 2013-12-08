@@ -1,11 +1,16 @@
 <head>
   <title>Vital Voices</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 </head>
 
-
 <template name="layout">
-  <a href="{{pathFor 'home'}}"><h1>Vital Women</h1></a>
-  <div class="container">
+  <a href="{{pathFor 'home'}}"><h1>Vital Voices Women</h1></a>
+ 
+      <div class="logo">
+	<img id="vvlogo" src="https://dchtm6r471mui.cloudfront.net/hackpad.com_BayZzuNR53V_p.97469_1386454338266_VW_LOGO_FINAL_TRANS.png" alt="VV Women Logo" alt="VV Women Logo"/>
+      </div>
+
+ <div class="container">
     {{yield}}
   </div>
 </template>
@@ -14,24 +19,14 @@
 <template name="home">
     {{> map}}
 <img width="320px" src="https://dchtm6r471mui.cloudfront.net/hackpad.com_BayZzuNR53V_p.97469_1386458361117_feed.jpg" />
-    <!--{{#each seeds}}
-    <a href="/seed/{{sys_id}}">{{title_quote}}</a>
-    {{/each}}-->
 </template>
 
 <template name="seed">
 
     <img src="{{author.headshot}}" /><h4>{{author.name}}</h4>
 
-<!--    <a href="{{pathFor 'home'}}">Home</a>-->
 
     <div class="header">
-
-      <div class="logo">
-	<img id="vvlogo" src="https://dchtm6r471mui.cloudfront.net/hackpad.com_BayZzuNR53V_p.97469_1386454338266_VW_LOGO_FINAL_TRANS.png" alt="VV Women Logo" alt="VV Women Logo"/>
-	Vital Voices Women
-      </div>
-
       <div class="author">
 	<div class="row">
 	<div class="col-sm-4">
@@ -103,7 +98,7 @@
     </div>
 
     <div class="main-content">
-      {{{main_content}}}
+      {{main_content}}
     </div>
 
     <div class="comments">
